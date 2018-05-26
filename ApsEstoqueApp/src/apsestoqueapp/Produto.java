@@ -17,9 +17,9 @@ public abstract class Produto {
     private double valorUnidade;
 
     public Produto(int codigo, String nome, String fabricante, int estoque, double valorUnidade) {
-        this.codigo = codigo;
-        this.nome = nome;
-        this.fabricante = fabricante;
+        setCodigo(codigo);
+        setNome(nome);
+        setFabricante(fabricante);
         this.estoque = estoque;
         this.valorUnidade = valorUnidade;
     }
@@ -45,27 +45,39 @@ public abstract class Produto {
     }
 
     public void setCodigo(int codigo) {
-        this.codigo = codigo;
+        if(codigo > 0)
+            this.codigo = codigo;
+        else
+            System.out.println("O código não pode ser 0");
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        if(!nome.isEmpty())
+            this.nome = nome;
+        else
+            System.out.println("O nome do produto não estar em branco");
     }
 
     public void setFabricante(String fabricante) {
-        this.fabricante = fabricante;
+        if(!fabricante.isEmpty())
+            this.fabricante = fabricante;
+        else
+            System.out.println("O fabricante não pode estar em branco");
     }
 
     public void setValorUnidade(double valorUnidade) {
-        this.valorUnidade = valorUnidade;
+        if(valorUnidade> 0)
+            this.valorUnidade = valorUnidade;
+        else
+            System.out.println("O valor precisa ser maior que 0");
     }
     
     public double vender(int estoque){
-        this.estoque = this.estoque-estoque;
         if(this.estoque<estoque){
             return -1;
         }
         else{
+            this.estoque = this.estoque-estoque;
             return valorUnidade*estoque;
         }
     }

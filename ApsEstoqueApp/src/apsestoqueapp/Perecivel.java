@@ -16,6 +16,22 @@ public class Perecivel extends Produto {
     private LocalDate validade;
     private boolean refrigerado;
 
+    public LocalDate getValidade() {
+        return validade;
+    }
+
+    public boolean isRefrigerado() {
+        return refrigerado;
+    }
+
+    public void setValidade(LocalDate validade) {
+        this.validade = validade;
+    }
+
+    public void setRefrigerado(boolean refrigerado) {
+        this.refrigerado = refrigerado;
+    }
+
     public Perecivel(LocalDate validade, boolean refrigerado, int codigo, String nome, String fabricante, int estoque, double valorUnidade) {
         super(codigo, nome, fabricante, estoque, valorUnidade);
         this.validade = validade;
@@ -26,8 +42,4 @@ public class Perecivel extends Produto {
     public String toString() {
         return "Perecivel{" + "validade=" + validade + ", refrigerado=" + refrigerado + '}';
     }
-    
-    
-    
-    
 }
